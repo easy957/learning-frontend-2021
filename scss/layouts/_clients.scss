@@ -1,0 +1,23 @@
+.clients {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clients__link {
+  color: $grey-icon-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 92px;
+  border: 1px solid #afb1b8;
+  border-radius: 4px;
+
+  transition: color $timing-func, border-color $timing-func;
+
+  &:hover,
+  &:focus {
+    color: $accent-color;
+    border-color: $accent-color;
+  }
+}

@@ -1,0 +1,15 @@
+.section {
+  padding: 94px 0;
+}
+
+.section--bg-dark {
+  background-color: $secondary-bg-color;
+}
+
+.section__title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.17;
+  text-align: center;
+  margin-bottom: 50px;
+}
