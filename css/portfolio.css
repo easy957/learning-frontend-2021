@@ -29,7 +29,8 @@ button {
   border: none;
 }
 
-img {
+img,
+picture {
   display: block;
 }
 
@@ -82,7 +83,7 @@ address {
 
 .section__title {
   font-weight: 700;
-  font-size: 36px;
+  font-size: 28px;
   line-height: 1.17;
   text-align: center;
   margin-bottom: 50px;
@@ -95,6 +96,9 @@ address {
 @media screen and (min-width: 1200px) {
   .section--d-none {
     display: block;
+  }
+  .section__title {
+    font-size: 36px;
   }
 }
 
@@ -145,10 +149,6 @@ address {
   align-items: center;
 }
 
-.burger-button {
-  z-index: 2;
-}
-
 .burger-icon {
   fill: #212121;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -184,6 +184,10 @@ address {
 }
 
 .nav__link:hover, .nav__link:focus {
+  color: #2196f3;
+}
+
+.nav__link--active {
   color: #2196f3;
 }
 
@@ -248,6 +252,7 @@ address {
   }
   .side-menu.is-open {
     transform: translateX(0);
+    pointer-events: initial;
   }
   .nav__item:not(:last-child) {
     margin-bottom: 24px;
@@ -260,6 +265,9 @@ address {
 @media screen and (min-width: 768px) {
   .header {
     height: 80px;
+  }
+  .menu-wrapper {
+    height: 100%;
   }
   .close-menu-button {
     display: none;
@@ -364,12 +372,13 @@ address {
 /* PORTFOLIO PAGE */
 .filter {
   display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
 }
 
 .filter__item:not(:last-child) {
-  margin-right: 9px;
+  margin-right: 8px;
+  margin-bottom: 15px;
 }
 
 .filter__button {
@@ -390,17 +399,8 @@ address {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
-.portfolio {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -30px;
-  margin-top: -30px;
-}
-
 .portfolio__item {
-  flex-basis: calc(100% / 3 - 30px);
-  margin-left: 30px;
-  margin-top: 30px;
+  flex-basis: 100%;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -408,9 +408,19 @@ address {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.portfolio__link {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
 .portfolio__thumb {
   position: relative;
   overflow: hidden;
+}
+
+.portfolio__pic {
+  max-width: 100%;
 }
 
 .portfolio__desc {
@@ -428,7 +438,7 @@ address {
   padding: 0 24px;
   box-sizing: border-box;
   background: rgba(33, 150, 243, 0.9);
-  transform: translateY(100.1%);
+  transform: translateY(100.5%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -437,6 +447,7 @@ address {
 }
 
 .portfolio__text-box {
+  flex-grow: 1;
   padding: 20px 24px;
   border-right: 1px solid #eeeeee;
   border-left: 1px solid #eeeeee;
@@ -456,17 +467,49 @@ address {
   color: #757575;
 }
 
-.footer {
-  background-color: #2f303a;
+@media screen and (max-width: 375px) {
+  .portfolio__desc {
+    font-size: 16px;
+  }
 }
 
-.footer__container {
-  display: flex;
+@media screen and (max-width: 767px) {
+  .portfolio__item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -30px;
+    margin-left: -30px;
+  }
+  .portfolio__item {
+    flex-basis: calc(100% / 2 - 30px);
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .portfolio__item {
+    flex-basis: calc(100% / 3 - 30px);
+  }
+}
+
+.footer {
+  background-color: #2f303a;
+  padding: 60px 0;
 }
 
 .address {
-  padding: 60px 0;
-  width: 25%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 60px;
 }
 
 .address__logo {
@@ -478,18 +521,20 @@ address {
   font-size: 14px;
   line-height: 1.71;
   color: #ffffff;
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 }
 
 .address__contact:not(:last-child) {
-  margin-bottom: 9px;
+  margin-bottom: 8px;
 }
 
 .address__link {
+  display: block;
   font-size: 14px;
   line-height: 1.71;
   color: rgba(255, 255, 255, 0.6);
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
 }
 
 .address__link:hover, .address__link:focus {
@@ -497,8 +542,7 @@ address {
 }
 
 .join {
-  padding: 72px 0;
-  width: 25%;
+  margin-bottom: 60px;
 }
 
 .join__title,
@@ -509,11 +553,13 @@ address {
   line-height: 1.14;
   text-transform: uppercase;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .join__list {
   color: #ffffff;
   display: flex;
+  justify-content: center;
 }
 
 .join__item:not(:last-child) {
@@ -535,14 +581,14 @@ address {
   background-color: #2196f3;
 }
 
-.subscribe {
-  padding-top: 72px;
-  width: 50%;
-  padding-left: 15px;
+.subscribe__form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
 }
 
 .subscribe__input {
-  width: 358px;
+  width: 100%;
   height: 50px;
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -550,11 +596,11 @@ address {
   outline: none;
   padding: 15px 16px;
   color: #ffffff;
-  margin-right: 7px;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 0 20px;
 }
 
-.subscribe__input:hover {
+h .subscribe__input:hover {
   cursor: pointer;
 }
 
@@ -567,5 +613,56 @@ address {
   line-height: 1.25;
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (min-width: 768px) {
+  .footer__container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .address,
+  .join {
+    flex-basis: 50%;
+  }
+  .join__title {
+    padding-top: 5px;
+  }
+  .subscribe {
+    flex-basis: 100%;
+  }
+  .subscribe__input {
+    width: 450px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .address,
+  .join {
+    flex-basis: 25%;
+    align-items: flex-start;
+    margin-bottom: 0;
+  }
+  .address__link {
+    text-align: left;
+  }
+  .join__list {
+    justify-content: flex-start;
+  }
+  .subscribe {
+    flex-basis: 50%;
+    padding-left: 15px;
+  }
+  .join__title,
+  .subscribe__title {
+    padding-top: 12px;
+    text-align: left;
+  }
+  .subscribe__form {
+    flex-flow: row;
+  }
+  .subscribe__input {
+    width: 358px;
+    margin: 0 12px 0 0;
+  }
 }
 /*# sourceMappingURL=portfolio.css.map */

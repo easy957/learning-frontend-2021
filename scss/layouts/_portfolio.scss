@@ -2,12 +2,15 @@
 
 .filter {
   display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
 }
 
-.filter__item:not(:last-child) {
-  margin-right: 9px;
+.filter__item {
+  &:not(:last-child) {
+    margin-right: 8px;
+    margin-bottom: 15px;
+  }
 }
 
 .filter__button {
@@ -31,17 +34,8 @@
   }
 }
 
-.portfolio {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -30px;
-  margin-top: -30px;
-}
-
 .portfolio__item {
-  flex-basis: calc(100% / 3 - 30px);
-  margin-left: 30px;
-  margin-top: 30px;
+  flex-basis: 100%;
   transition: box-shadow $timing-func;
 
   &:hover {
@@ -50,9 +44,18 @@
   }
 }
 
+.portfolio__link {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
 .portfolio__thumb {
   position: relative;
   overflow: hidden;
+}
+.portfolio__pic {
+  max-width: 100%;
 }
 
 .portfolio__desc {
@@ -72,7 +75,7 @@
   box-sizing: border-box;
   background: rgba(33, 150, 243, 0.9);
 
-  transform: translateY(100.1%);
+  transform: translateY(100.5%);
   transition: transform $timing-func;
 
   .portfolio__item:hover & {
@@ -81,6 +84,7 @@
 }
 
 .portfolio__text-box {
+  flex-grow: 1;
   padding: 20px 24px;
   border-right: 1px solid #eeeeee;
   border-left: 1px solid #eeeeee;
@@ -98,4 +102,38 @@
   font-size: 16px;
   line-height: 1.87;
   color: $common-text-color;
+}
+
+@media screen and (max-width: 375px) {
+  .portfolio__desc {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio__item:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -30px;
+    margin-left: -30px;
+  }
+
+  .portfolio__item {
+    flex-basis: calc(100% / 2 - 30px);
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .portfolio__item {
+    flex-basis: calc(100% / 3 - 30px);
+  }
 }
