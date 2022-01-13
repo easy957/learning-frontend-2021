@@ -1,98 +1,250 @@
-header {
+.header {
+  height: 60px;
   border-bottom: 1px solid #ececec;
 }
 
-.header {
-  height: 80px;
-
-  &__container {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
-.nav {
-  display: flex;
-  height: 100%;
-}
-
-.nav__list {
-  display: flex;
-  align-items: center;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-  transition: color $timing-func;
-}
-
-.nav__item {
+.header__container {
   position: relative;
   height: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+}
 
-  &:not(:last-child) {
-    margin-right: 50px;
+.burger-button {
+  z-index: 2;
+}
+
+.burger-icon {
+  fill: $title-text-color;
+  transition: fill $timing-func;
+
+  .burger-button:hover &,
+  .burger-button:focus & {
+    fill: $accent-color;
+  }
+}
+
+.close-menu-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+.close-menu-icon {
+  fill: $title-text-color;
+  transition: fill $timing-func;
+
+  .close-menu-button:hover &,
+  .close-menu-button:focus & {
+    fill: $accent-color;
   }
 }
 
 .nav__link {
-  color: $common-text-color;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 34px;
+  line-height: 1.175;
   letter-spacing: 0.02em;
-  transition: color $timing-func;
+  color: $title-text-color;
 
   &:hover,
   &:focus {
     color: $accent-color;
   }
-
-  &--active {
-    color: $accent-color;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background-color: $accent-color;
-      cursor: initial;
-    }
-  }
-}
-
-.contacts {
-  display: flex;
-}
-
-.contacts__item:not(:last-child) {
-  margin-right: 50px;
-}
-
-.contacts__link {
-  display: flex;
-  align-items: center;
-  color: $common-text-color;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-  transition: color $timing-func;
-
-  &:focus,
-  &:hover {
-    color: $accent-color;
-  }
 }
 
 .contacts__icon {
-  margin-right: 10px;
+  display: none;
+}
+
+.contacts__tel {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+  letter-spacing: 0.02em;
+  color: $accent-color;
+}
+
+.header-socials {
+  margin-top: 64px;
+}
+
+.header-socials__list {
+  display: flex;
+  margin-left: -10px;
+}
+
+.header-socials__item:not(:last-child) {
+  border-right: 1px solid rgba(33, 33, 33, 0.2);
+}
+
+.header-socials__link {
+  padding: 0 10px;
+  color: $accent-color;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+}
+
+@media screen and (max-width: 767px) {
+  .menu-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .side-menu {
+    z-index: 2;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    padding: 48px 25px;
+    background-color: $white-color;
+    transform: translateX(100%);
+    transition: transform $timing-func;
+
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
+
+  .nav__item:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  .contacts__item:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    height: 80px;
+  }
+
+  .close-menu-button {
+    display: none;
+  }
+
+  .burger-button {
+    display: none;
+  }
+  .side-menu {
+    display: flex;
+    height: 100%;
+  }
+
+  .nav {
+    margin-right: 84px;
+  }
+
+  .nav__list {
+    display: flex;
+    align-items: center;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    transition: color $timing-func;
+    height: 100%;
+  }
+
+  .nav__item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-right: 50px;
+    }
+  }
+
+  .nav__link {
+    color: $title-text-color;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    transition: color $timing-func;
+    display: block;
+
+    &:hover,
+    &:focus {
+      color: $accent-color;
+    }
+
+    &--active {
+      color: $accent-color;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: $accent-color;
+        cursor: initial;
+      }
+    }
+  }
+
+  .contacts {
+    align-self: center;
+    display: flex;
+    flex-flow: column-reverse;
+  }
+
+  .contacts__item:nth-child(2) {
+    margin: 0 0 10px;
+  }
+
+  .contacts__link {
+    display: flex;
+    align-items: center;
+    color: $common-text-color;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    transition: color $timing-func;
+
+    &:focus,
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  .contacts__icon {
+    display: block;
+    margin-right: 10px;
+  }
+  .header-socials {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .nav {
+    margin-right: 305px;
+  }
+  .contacts {
+    flex-flow: row-reverse;
+  }
+
+  .contacts__item:nth-child(2) {
+    margin: 0 30px 0 0;
+  }
 }

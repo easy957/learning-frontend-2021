@@ -21,41 +21,70 @@
   <body>
     <header class="header">
       <div class="container header__container">
-        <nav class="nav">
-          <a class="logo" href="./index.html">
-            <span class="logo--accent">Web</span>Studio
-          </a>
-
-          <ul class="nav__list">
-            <li class="nav__item">
-              <a class="nav__link nav__link--active" href="./index.html">Студия</a>
+        <a class="logo" href="./index.html">
+          <span class="logo--accent">Web</span>Studio
+        </a>
+        <button class="burger-button" type="button" data-menu-button>
+          <svg width="40" height="40" class="burger-icon">
+            <use href="images/icons.svg#menu-burger"></use>
+          </svg>
+        </button>
+        <div class="menu-wrapper">
+          <div class="side-menu" data-menu>
+            <button class="close-menu-button" type="button" data-menu-close>
+            <svg width="40" height="40" class="close-menu-icon">
+              <use href="images/icons.svg#menu-close"></use>
+            </svg>
+            </button>
+            <nav class="nav">
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a class="nav__link nav__link--active" href="./index.html">Студия</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="./portfolio.html">Портфолио</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="#">Контакты</a>
+                </li>
+              </ul>
+            </nav>
+            <ul class="contacts">
+              <li class="contacts__item">
+                <a class="contacts__tel contacts__link" href="tel:+380961111111">
+                  <svg width="10px" height="16px" class="contacts__icon">
+                    <use href="./images/icons.svg#icon-book"></use>
+                  </svg>
+                  +38 096 111 11 11
+                </a>
+              </li>
+            <li class="contacts__item">
+              <a class="contacts__mail contacts__link" href="mailto:info@devstudio.com">
+                <svg width="16px" height="12px" class="contacts__icon">
+                  <use href="./images/icons.svg#icon-envelope"></use>
+                </svg>
+                info@devstudio.com</a
+              >
             </li>
-            <li class="nav__item">
-              <a class="nav__link" href="./portfolio.html">Портфолио</a>
+            <li class="header-socials">
+              <ul class="header-socials__list">
+                <li class="header-socials__item">
+                  <a href="" class="header-socials__link">Instagram</a>
+                </li>
+                <li class="header-socials__item">
+                  <a href="" class="header-socials__link">Twitter</a>
+                </li>
+                <li class="header-socials__item">
+                  <a href="" class="header-socials__link">Facebook</a>
+                </li>
+                <li class="header-socials__item">
+                  <a href="" class="header-socials__link">LinkedIn</a>
+                </li>
+              </ul>
             </li>
-            <li class="nav__item">
-              <a class="nav__link" href="#">Контакты</a>
-            </li>
-          </ul>
-        </nav>
-        <ul class="contacts">
-          <li class="contacts__item">
-            <a class="contacts__link" href="mailto:info@devstudio.com">
-              <svg width="16px" height="12px" class="contacts__icon">
-                <use href="./images/icons.svg#icon-envelope"></use>
-              </svg>
-              info@devstudio.com</a
-            >
-          </li>
-          <li class="contacts__item">
-            <a class="contacts__link" href="tel:+380961111111">
-              <svg width="10px" height="16px" class="contacts__icon">
-                <use href="./images/icons.svg#icon-book"></use>
-              </svg>
-              +38 096 111 11 11
-            </a>
-          </li>
-        </ul>
+            </ul>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -126,7 +155,7 @@
         </div>
       </section>
 
-      <section class="section">
+      <section class="section section--d-none">
         <div class="container">
           <h2 class="section__title">Чем мы занимаемся</h2>
           <ul class="example">
@@ -158,7 +187,7 @@
         </div>
       </section>
 
-      <section class="section section--bg-dark">
+      <!-- <section class="section section--bg-dark">
         <div class="container">
           <h2 class="section__title">Наша команда</h2>
           <ul class="team">
@@ -320,9 +349,9 @@
             </li>
           </ul>
         </div>
-      </section>
+      </section> -->
 
-      <section class="section">
+      <!-- <section class="section">
         <div class="container">
           <h2 class="section__title">Постоянные клиенты</h2>
           <ul class="clients">
@@ -370,10 +399,10 @@
             </li>
           </ul>
         </div>
-      </section>
+      </section> -->
     </main>
 
-    <footer class="footer">
+    <!-- <footer class="footer">
       <div class="container footer__container">
         <div class="address">
           <a class="logo address__logo" href="./index.html">
@@ -436,7 +465,7 @@
           </form>
         </div>
       </div>
-    </footer>
+    </footer> -->
 
     <div class="backdrop is-hidden" data-modal>
       <div class="modal">
@@ -495,6 +524,7 @@
       </div>
     </div>
 
+    <script src="./js/mobile-menu.js"></script>
     <script src="./js/modal.js"></script>
   </body>
 </html>
