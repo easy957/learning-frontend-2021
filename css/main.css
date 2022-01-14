@@ -12,6 +12,12 @@ body {
   color: #212121;
 }
 
+.site-wrapper.menu-open {
+  position: fixed;
+  overflow-y: hidden;
+  height: 100%;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -327,7 +333,6 @@ address {
 }
 
 .header__container {
-  position: relative;
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -833,10 +838,14 @@ address {
 }
 
 /* PORTFOLIO PAGE */
+.section--pt {
+  padding-top: 60px;
+}
+
 .filter {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 35px;
+  padding-bottom: 35px;
 }
 
 .filter__item:not(:last-child) {
@@ -883,7 +892,9 @@ address {
 }
 
 .portfolio__pic {
+  z-index: -1;
   max-width: 100%;
+  position: relative;
 }
 
 .portfolio__desc {
@@ -958,6 +969,9 @@ address {
 }
 
 @media screen and (min-width: 1200px) {
+  .section--pt {
+    padding-top: 94px;
+  }
   .portfolio__item {
     flex-basis: calc(100% / 3 - 30px);
   }
